@@ -18,6 +18,7 @@ def main_content():
     return escolha
 
 def denuncia():
+
     print('O que gostaria de denunciar?')
     print('(1) Maltratos a animais (pesca ilegal, trafico de animais, etc.')
     print('(2) Poluição de rios, oceanos ou/e praias')
@@ -41,26 +42,44 @@ def doacao():
     print('Obrigado por ajudar!')
     valor = float(input('Qual seria o valor?\nR$'))
     while valor < 0:
-        input('Valor incorreto! Insira um novo valor\nR$')
-    metodo_pagamento = int(input('Qual seria o metodo de pagamento?\n(1) Cartão Débito\n(2) Pix\n'))
+        valor = float(input('Valor incorreto! Insira um novo valor\nR$'))
+    
+    metodo_pagamento = int(input('Qual seria o método de pagamento?\n(1) Cartão Débito\n(2) Pix\n'))
+    if metodo_pagamento == 1:
+        metodo_pagamento_str = 'Cartão de Débito'
+    elif metodo_pagamento == 2:
+        metodo_pagamento_str = 'Pix'
+    else:
+        print("Método de pagamento inválido!")
+        return
+
     limpa_tela()
-    confirmacao = int(input(f'Confirme os dados R${valor}\nMetodo de pagamento:{metodo_pagamento}\n(1) Confirmar\n(2) Cancelar\n'))
+    confirmacao = int(input(f'Confirme os dados: R${valor}\nMétodo de pagamento: {metodo_pagamento_str}\n(1) Confirmar\n(2) Cancelar\n'))
+    
     while confirmacao == 2:
         valor = float(input('Qual seria o valor?\nR$'))
         while valor < 0:
-            input('Valor incorreto! Insira um novo valor\nR$')
-        metodo_pagamento = int(input('Qual seria o metodo de pagamento?\n(1) Cartão Débito\n(2) Pix\n'))
+            valor = float(input('Valor incorreto! Insira um novo valor\nR$'))
+        
+        metodo_pagamento = int(input('Qual seria o método de pagamento?\n(1) Cartão Débito\n(2) Pix\n'))
         if metodo_pagamento == 1:
-            metodo_pagamento = 'Cartão de Débito'
+            metodo_pagamento_str = 'Cartão de Débito'
         elif metodo_pagamento == 2:
-            metodo_pagamento = 'Pix'
+            metodo_pagamento_str = 'Pix'
+        else:
+            print("Método de pagamento inválido!")
+            return
+
         limpa_tela()
-        confirmacao = int(input(f'Confirme os dados R${valor}\nMetodo de pagamento:{metodo_pagamento}\n(1) Confirmar\n(2) cancelar\n'))  
+        confirmacao = int(input(f'Confirme os dados: R${valor}\nMétodo de pagamento: {metodo_pagamento_str}\n(1) Confirmar\n(2) Cancelar\n'))
+    
     if metodo_pagamento == 1:
-        num_cartao = int(input("Numero impresso no cartão:"))
-        dat_validade = input('Data vencimento:')
-        cvv = int(input('CVV do cartao'))
-        print(f'Confirme os dados\nNumero do cartão:{num_cartao}\nData de validade:{dat_validade}\nCVV: {cvv}')
+        num_cartao = input("Número impresso no cartão:")
+        dat_validade = input('Data de vencimento:')
+        cvv = input('CVV do cartão:')
+        print(f'Confirme os dados\nNúmero do cartão: {num_cartao}\nData de validade: {dat_validade}\nCVV: {cvv}')
+    
+    print("Doação realizada com sucesso!")
 
 
 if __name__ == '__main__':
