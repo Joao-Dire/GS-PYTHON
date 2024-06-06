@@ -98,9 +98,12 @@ def doacao():
         num_cartao = input("Número impresso no cartão:")
         dat_validade = input('Data de vencimento:')
         cvv = input('CVV do cartão:')
-        print(f'Confirme os dados\nNúmero do cartão: {num_cartao}\nData de validade: {dat_validade}\nCVV: {cvv}')
-        print("Doação realizada com sucesso!")
-    
+        confirmacao = int(input(f'Confirme os dados\nNúmero do cartão: {num_cartao}\nData de validade: {dat_validade}\nCVV: {cvv}\n(1) Confirmar\n(2) Cancelar\n'))
+        if confirmacao == 1:
+            print("Doação realizada com sucesso!")
+        else:
+            print("Doação cancelada")
+            return
     elif metodo_pagamento == 2:
         print('Sua chave pix:\n00020101021226880014BR.GOV.BCB.PIX0136com.ong.oceanhelp0137Brasil OceanHelp52040000530398654041.005802BR5923OceanHelp LTDA6009SAO PAULO62190528AD3\nObrigado por colaborar!')
     
