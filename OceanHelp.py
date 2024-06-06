@@ -4,7 +4,8 @@ def limpa_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def main_content():
-    while True:
+    escolha = 0  
+    while escolha != 4:  
         print('ʙᴇᴍ ᴠɪɴᴅᴏ ᴀᴏ ᴏᴄᴇᴀɴʜᴇʟᴘ')
         print('(1) Denunciar')
         print('(2) Doar para ONGs')
@@ -28,8 +29,6 @@ def main_content():
         elif escolha == 3:
             limpa_tela()
             lista_animais()
-        elif escolha == 4:
-            break
 
 def denuncia():
     print('O que gostaria de denunciar?')
@@ -100,8 +99,11 @@ def doacao():
         dat_validade = input('Data de vencimento:')
         cvv = input('CVV do cartão:')
         print(f'Confirme os dados\nNúmero do cartão: {num_cartao}\nData de validade: {dat_validade}\nCVV: {cvv}')
+        print("Doação realizada com sucesso!")
     
-    print("Doação realizada com sucesso!")
+    elif metodo_pagamento == 2:
+        print('Sua chave pix:\n00020101021226880014BR.GOV.BCB.PIX0136com.ong.oceanhelp0137Brasil OceanHelp52040000530398654041.005802BR5923OceanHelp LTDA6009SAO PAULO62190528AD3\nObrigado por colaborar!')
+    
 
 def adicionar_animais(lista):
     raca = input('Digite a raça do animal:\n')
@@ -112,7 +114,8 @@ def adicionar_animais(lista):
     lista.append(nome)
 
 def lista_animais():
-    while True:
+    escolha = 0  
+    while escolha != 3:  
         print('(1) Adicionar animais em extinção')
         print('(2) Listar animais em extinção')
         print('(3) Voltar')
@@ -125,10 +128,7 @@ def lista_animais():
             adicionar_animais(animais)
         elif escolha == 2:
             print(f'Animais em extinção: {animais}')
-        elif escolha == 3:
-            limpa_tela()
-            return
 
 animais = []
 
-op = main_content()
+main_content()
